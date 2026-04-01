@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WLXN News 4 | Dutch Bros Coffee in Lexington Ordered to Close Following Health Inspection</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #c0001e;
+    --dark: #111111;
+    --mid: #444;
+    --light: #888;
+    --border: #ddd;
+    --bg: #f4f2ee;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--dark);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* TOP BAR */
+  .top-bar {
+    background: var(--red);
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 0;
+    text-align: center;
+  }
+  .top-bar span { margin: 0 18px; }
+  .top-bar .live-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: white;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 1.2s infinite;
+    vertical-align: middle;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+  /* HEADER */
+  header {
+    background: var(--dark);
+    padding: 0;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border-bottom: 3px solid var(--red);
+  }
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .logo-station {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #aaa;
+    text-transform: uppercase;
+  }
+  .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .logo-name span { color: var(--red); }
+  .logo-tagline {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    color: #777;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-meta {
+    text-align: right;
+    font-family: 'Barlow', sans-serif;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .header-meta .weather {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+  }
+
+  /* NAV */
+  nav {
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    padding: 0 24px;
+  }
+  nav a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ccc;
+    text-decoration: none;
+    padding: 11px 16px;
+    display: block;
+    transition: color 0.15s, background 0.15s;
+  }
+  nav a:hover { color: white; background: #2a2a2a; }
+  nav a.active { color: white; border-bottom: 3px solid var(--red); }
+
+  /* BREAKING BANNER */
+  .breaking-banner {
+    background: var(--red);
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    margin: 18px auto 0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .breaking-label {
+    background: #8c0016;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
+  .breaking-text {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+  }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 24px 48px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* ARTICLE */
+  article {}
+
+  .section-tag {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-tag::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.3;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+
+  .deck {
+    font-size: 19px;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    border-left: 3px solid var(--red);
+    padding-left: 16px;
+    font-style: italic;
+  }
+
+  .byline-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 22px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+  }
+  .byline-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #bbb 0%, #888 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .byline-info { flex: 1; }
+  .byline-name { font-weight: 700; color: var(--dark); }
+  .byline-role { color: var(--light); font-size: 12px; }
+  .byline-date { color: var(--light); font-size: 12px; text-align: right; }
+
+  /* HERO IMAGE */
+  .hero-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    background: #ccc;
+    display: block;
+  }
+  .hero-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #2a2a2a 0%, #444 50%, #2a2a2a 100%);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255,255,255,0.02) 10px,
+      rgba(255,255,255,0.02) 20px
+    );
+  }
+  .hero-icon { font-size: 56px; margin-bottom: 10px; opacity: 0.8; }
+  .hero-caption-text {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+  }
+  .hero-sub { font-family: 'Barlow', sans-serif; font-size: 13px; color: #aaa; margin-top: 4px; }
+
+  .caption {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    color: var(--light);
+    margin-bottom: 22px;
+    font-style: italic;
+  }
+
+  /* ARTICLE BODY */
+  .article-body p {
+    margin-bottom: 18px;
+    color: #222;
+  }
+
+  .article-body .drop-cap::first-letter {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 68px;
+    font-weight: 900;
+    line-height: 0.75;
+    padding-right: 8px;
+    padding-top: 6px;
+    color: var(--red);
+  }
+
+  .pull-quote {
+    border-top: 3px solid var(--dark);
+    border-bottom: 1px solid var(--dark);
+    padding: 18px 0;
+    margin: 30px 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.4;
+    margin: 0 !important;
+    color: var(--dark);
+  }
+  .pull-quote cite {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-top: 10px;
+    display: block;
+    font-style: normal;
+  }
+
+  .info-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    padding: 18px 20px;
+    margin: 28px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .info-box h4 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .info-box ul {
+    padding-left: 18px;
+    font-size: 15px;
+    color: #333;
+  }
+  .info-box ul li { margin-bottom: 6px; }
+
+  /* SHARE BAR */
+  .share-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 30px 0;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .share-label { color: var(--light); text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; }
+  .share-btn {
+    padding: 7px 16px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .share-btn.fb { background: #1877f2; color: white; }
+  .share-btn.tw { background: #000; color: white; }
+  .share-btn.copy { background: #eee; color: #333; }
+  .share-count { margin-left: auto; color: var(--light); font-size: 12px; }
+
+  /* COMMENTS */
+  .comments-section { margin-top: 36px; }
+  .comments-section h3 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark);
+    border-bottom: 2px solid var(--dark);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  .comment {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .comment-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800; font-size: 14px; color: white;
+  }
+  .comment-body { flex: 1; }
+  .comment-header {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .comment-name { font-weight: 700; color: var(--dark); }
+  .comment-time { color: var(--light); margin-left: 8px; font-size: 11px; }
+  .comment-text { font-size: 15px; color: #333; }
+  .comment-actions {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    color: var(--light);
+    margin-top: 6px;
+  }
+  .comment-actions span { cursor: pointer; margin-right: 14px; }
+  .comment-actions span:hover { color: var(--red); }
+
+  /* SIDEBAR */
+  aside {}
+  .sidebar-widget {
+    background: white;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .widget-header {
+    background: var(--dark);
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+  }
+  .widget-body { padding: 14px; }
+
+  .related-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .related-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .related-thumb {
+    width: 64px; height: 50px;
+    background: #ddd;
+    flex-shrink: 0;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .related-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--dark);
+  }
+  .related-time {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    color: var(--light);
+    margin-top: 4px;
+  }
+
+  .ad-box {
+    background: #f0f0f0;
+    border: 1px dashed #ccc;
+    text-align: center;
+    padding: 30px 20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    color: #bbb;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .weather-widget .widget-body {
+    font-family: 'Barlow', sans-serif;
+  }
+  .weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .weather-temp { font-size: 40px; font-weight: 800; color: var(--dark); }
+  .weather-icon { font-size: 36px; }
+  .weather-desc { font-size: 13px; color: var(--mid); }
+  .weather-city { font-size: 12px; color: var(--light); }
+  .weather-details { display: flex; gap: 14px; font-size: 12px; color: var(--mid); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: #888;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    padding: 24px;
+    margin-top: 40px;
+    border-top: 3px solid var(--red);
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 6px;
+  }
+  footer .footer-logo span { color: var(--red); }
+  footer p { margin-top: 6px; line-height: 1.8; font-size: 11px; color: #555; }
+
+  /* DISCLAIMER */
+  .disclaimer-banner {
+    display: none;
+    background: #fffbe6;
+    border: 2px solid #f0c040;
+    border-radius: 4px;
+    padding: 14px 20px;
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a5c00;
+    max-width: 1100px;
+    margin: 16px auto;
+  }
+
+  @media (max-width: 760px) {
+    .container { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+    .header-meta { display: none; }
+    nav a { padding: 10px 10px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span><span class="live-dot"></span>Live Updates</span>
+  <span>Lexington County, SC</span>
+  <span>Wednesday, April 2, 2025</span>
+  <span>📺 Watch Live</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-station">CBS Affiliate · Lexington–Columbia</div>
+      <div class="logo-name">WLX<span>N</span></div>
+      <div class="logo-tagline">News 4 · Midlands First</div>
+    </div>
+    <div class="header-meta">
+      <div class="weather">78°F ☀️</div>
+      <div>Lexington, SC</div>
+      <div>Wednesday, April 2, 2025</div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#">Home</a>
+    <a href="#" class="active">Local News</a>
+    <a href="#">Weather</a>
+    <a href="#">Crime</a>
+    <a href="#">Business</a>
+    <a href="#">Sports</a>
+    <a href="#">Community</a>
+  </div>
+</nav>
+
+<!-- DISCLAIMER (hidden by default — reveal button at bottom) -->
+<div class="disclaimer-banner" id="disclaimer">
+  🎉 APRIL FOOLS! This is a fake news article created as a prank. Dutch Bros in Lexington, SC is open and totally fine!
+</div>
+
+<!-- BREAKING BANNER -->
+<div class="breaking-banner" style="margin-left:auto;margin-right:auto;max-width:1100px;margin-top:18px;margin-bottom:0;border-radius:3px;overflow:hidden;">
+  <div class="breaking-label">⚠ Breaking</div>
+  <div class="breaking-text">Lexington Dutch Bros location ordered to cease operations pending full re-inspection</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+  <article>
+    <div class="section-tag">Local Business · Health &amp; Safety</div>
+
+    <h1>Newly Opened Dutch Bros Coffee in Lexington Faces Closure After Failing Health Inspection</h1>
+
+    <p class="deck">South Carolina DHEC investigators cited multiple critical violations at the Lexington location, which opened just weeks ago, ordering the coffee chain to suspend operations immediately.</p>
+
+    <div class="byline-bar">
+      <div class="byline-avatar">MR</div>
+      <div class="byline-info">
+        <div class="byline-name">Madison Rourke</div>
+        <div class="byline-role">WLXN Local Investigative Reporter</div>
+      </div>
+      <div class="byline-date">
+        Published: Apr. 2, 2025, 7:14 a.m. ET<br>
+        Updated: 9:47 a.m. ET
+      </div>
+    </div>
+
+    <!-- HERO IMAGE PLACEHOLDER -->
+    <div class="hero-placeholder">
+      <div class="hero-icon">🚫☕</div>
+      <div class="hero-caption-text">Dutch Bros · Lexington, SC</div>
+      <div class="hero-sub">Location ordered closed by DHEC · April 2, 2025</div>
+    </div>
+    <div class="caption">A paper notice posted on the front door of the Lexington Dutch Bros location Wednesday morning informed customers the store is temporarily closed pending re-inspection. (WLXN Staff)</div>
+
+    <div class="article-body">
+
+      <p class="drop-cap">LEXINGTON, S.C. — The Dutch Bros Coffee location in Lexington has been ordered to immediately cease food and beverage service after state health inspectors discovered several critical violations during a routine compliance inspection Tuesday afternoon, according to documents obtained by WLXN News 4.</p>
+
+      <p>The South Carolina Department of Health and Environmental Control (DHEC) conducted the unannounced inspection at approximately 2:30 p.m. on Tuesday and issued a closure order before the store's close of business. A notice was posted on the storefront door Wednesday morning, confirming customers who arrived for their morning coffee that the location remains shuttered.</p>
+
+      <p>The inspection report, a copy of which was provided to WLXN, lists a total of seven violations, four of which were classified as "Priority" — the most serious category under state health code — and three classified as "Priority Foundation" violations.</p>
+
+      <div class="info-box">
+        <h4>📋 Key Violations Cited by DHEC (April 1, 2025)</h4>
+        <ul>
+          <li><strong>Temperature Control Failure:</strong> Multiple dairy and perishable products stored at unsafe temperatures, including milk and cold brew bases</li>
+          <li><strong>Pest Activity:</strong> Evidence of rodent activity discovered in rear storage and dry goods area</li>
+          <li><strong>Handwashing Non-Compliance:</strong> Handwashing station observed blocked and inaccessible to staff during service hours</li>
+          <li><strong>Equipment Sanitization:</strong> Espresso and blending equipment found not properly sanitized between uses</li>
+          <li><strong>Employee Hygiene:</strong> Staff observed handling ready-to-serve beverages without proper glove use or handwashing</li>
+        </ul>
+      </div>
+
+      <p>"Any Priority violation requires immediate corrective action, and in cases where we observe multiple Priority violations during a single inspection, our protocol is to issue an emergency suspension of operations," said DHEC spokesperson Carla Jennings in a statement to WLXN. "The safety of the public is our top priority, and we take these situations very seriously regardless of the size or popularity of the establishment."</p>
+
+      <div class="pull-quote">
+        <p>"We observed conditions that, frankly, were not what you'd expect from a brand-new facility. These things can happen during a rushed opening."</p>
+        <cite>— Anonymous DHEC inspector, speaking off the record to WLXN News 4</cite>
+      </div>
+
+      <p>The Lexington location, which opened to considerable fanfare just weeks ago, drew long lines of customers eager to try the Oregon-based chain's signature cold brew and energy drinks. Dutch Bros has been rapidly expanding across the Southeast, with the Lexington store representing one of several new South Carolina openings in recent months.</p>
+
+      <p>Dutch Bros corporate communications did not respond to WLXN's request for comment by time of publication. A voicemail left with the store's local manager had also not been returned as of Wednesday morning.</p>
+
+      <p>Several customers who arrived at the Lexington location Wednesday morning expressed frustration and surprise at the closure notice. "I drove 20 minutes for my Wednesday Rebel," said one woman, who declined to give her name. "I can't believe it. It's brand new — how do you already have this kind of problem?"</p>
+
+      <p>Under DHEC rules, the location must undergo a full re-inspection and receive a passing score before it can resume serving customers. There is no set timeline, though DHEC confirmed that operators typically schedule re-inspections within five to ten business days of a closure order. The agency added that a reinspection fee of $150 applies.</p>
+
+      <p>WLXN News 4 will continue to follow this story and will update this article as more information becomes available. If you have information related to this story, contact our newsroom tip line at (803) 555-0194.</p>
+
+    </div>
+
+    <!-- SHARE BAR -->
+    <div class="share-bar">
+      <span class="share-label">Share</span>
+      <button class="share-btn fb" onclick="alert('Sharing on Facebook!')">Facebook</button>
+      <button class="share-btn tw" onclick="alert('Sharing on X!')">𝕏 Post</button>
+      <button class="share-btn copy" onclick="navigator.clipboard && navigator.clipboard.writeText(window.location.href); this.textContent='Copied!'">Copy Link</button>
+      <span class="share-count">🔥 1,284 shares</span>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="comments-section">
+      <h3>Comments (47)</h3>
+
+      <div class="comment">
+        <div class="comment-avatar" style="background:#c0001e;">TW</div>
+
+        <div class="comment-body">
+          <div class="comment-header">
+            <span class="comment-name">TigerWife2009</span>
+            <span class="comment-time">2 hours ago</span>
+          </div>
+          <div class="comment-text">Absolutely disgusting. We waited SO long for a Dutch Bros and this is what we get?? I will not be returning even after they reopen.</div>
+          <div class="comment-actions"><span>👍 34</span><span>Reply</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="comment-avatar" style="background:#2a7a2a;">LL</div>
+        <div class="comment-body">
+          <div class="comment-header">
+            <span class="comment-name">LexLocal_843</span>
+            <span class="comment-time">1 hour ago</span>
+          </div>
+          <div class="comment-text">This is why you wait a few months before going to a new place. Let them work out the kinks first. Classic rookie mistake on their part.</div>
+          <div class="comment-actions"><span>👍 21</span><span>Reply</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="comment-avatar" style="background:#7a4a00;">CS</div>
+        <div class="comment-body">
+          <div class="comment-header">
+            <span class="comment-name">CoffeeSnobSC</span>
+            <span class="comment-time">45 minutes ago</span>
+          </div>
+          <div class="comment-text">Rodent activity in a brand new building is a major red flag. That usually points to construction-phase issues not being addressed before opening day. Hope they get it sorted — the drinks are honestly pretty good.</div>
+          <div class="comment-actions"><span>👍 18</span><span>Reply</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="comment-avatar" style="background:#444;">DB</div>
+        <div class="comment-body">
+          <div class="comment-header">
+            <span class="comment-name">DutchBrosFan_Official</span>
+            <span class="comment-time">30 minutes ago</span>
+          </div>
+          <div class="comment-text">I feel bad for the employees. They just started this job. Corporate should have had better oversight during the opening period. This isn't on the baristas.</div>
+          <div class="comment-actions"><span>👍 52</span><span>Reply</span></div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="sidebar-widget weather-widget">
+      <div class="widget-header">Lexington Weather</div>
+      <div class="widget-body">
+        <div class="weather-main">
+          <div>
+            <div class="weather-temp">78°</div>
+            <div class="weather-desc">Mostly Sunny</div>
+            <div class="weather-city">Lexington, SC</div>
+          </div>
+          <div class="weather-icon">☀️</div>
+        </div>
+        <div class="weather-details">
+          <span>💧 Humidity: 61%</span>
+          <span>💨 Wind: 9 mph</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <div class="widget-header">Most Read Today</div>
+      <div class="widget-body">
+        <div class="related-item">
+          <div class="related-thumb">☕</div>
+          <div>
+            <div class="related-title">Dutch Bros Closure: What Customers Need to Know</div>
+            <div class="related-time">Local Business · 2h ago</div>
+          </div>
+        </div>
+        <div class="related-item">
+          <div class="related-thumb">🚦</div>
+          <div>
+            <div class="related-title">I-20 Widening Project Enters Phase 3 Near Lexington</div>
+            <div class="related-time">Traffic · 4h ago</div>
+          </div>
+        </div>
+        <div class="related-item">
+          <div class="related-thumb">🏫</div>
+          <div>
+            <div class="related-title">Lexington-Richland School District Approves New Calendar</div>
+            <div class="related-time">Education · 6h ago</div>
+          </div>
+        </div>
+        <div class="related-item">
+          <div class="related-thumb">⛈️</div>
+          <div>
+            <div class="related-title">Severe Storm Watch Possible This Weekend for Midlands</div>
+            <div class="related-time">Weather · 1h ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-box">Advertisement</div>
+
+    <div class="sidebar-widget">
+      <div class="widget-header">DHEC Restaurant Scores</div>
+      <div class="widget-body" style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mid);">
+        <p style="margin-bottom:8px;">Search Lexington County restaurant inspections at <strong style="color:var(--dark);">scdhec.gov</strong></p>
+        <p style="font-size:11px;color:#aaa;">Scores updated weekly. Restaurants scoring below 88 are subject to re-inspection.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">WLX<span>N</span> News 4</div>
+  <div style="color:#666;font-size:11px;margin-bottom:4px;">A CBS Affiliate · Serving the Lexington–Columbia Midlands Since 1987</div>
+  <p>© 2025 WLXN Broadcasting, LLC. All rights reserved. · Privacy Policy · Terms of Use · FCC Public File · Closed Captioning</p>
+  <p style="margin-top:10px;color:#444;font-size:10px;">This website is a parody created for entertainment purposes. It is not affiliated with any real news organization, DHEC, or Dutch Bros Coffee.</p>
+</footer>
+
+</body>
+</html>
